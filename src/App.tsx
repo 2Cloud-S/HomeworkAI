@@ -144,7 +144,7 @@ const HomeworkAIApp: React.FC = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://your-api-endpoint.com/generate-answer', {
+      const response = await fetch('https://afnankhan1122.pythonanywhere.com/generate-answer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -416,29 +416,29 @@ const HomeworkAIApp: React.FC = () => {
                     />
                   ) : (
                     <>
-                          <h3>Summary:</h3>
-                                                <motion.p
-                                                  initial={{ opacity: 0 }}
-                                                  animate={{ opacity: 1 }}
-                                                  transition={{ delay: 0.2 }}
-                                                  className="summary-text"
-                                                >
-                                                  {summary}
-                                                </motion.p>
-                                                <h3>Full Answer:</h3>
-                                                <motion.p
-                                                  initial={{ opacity: 0 }}
-                                                  animate={{ opacity: 1 }}
-                                                  transition={{ delay: 0.3 }}
-                                                  className="answer-text"
-                                                >
-                                                  {answer}
-                                                </motion.p>
-                                              </>
-                                            )}
-                                          </motion.div>
-                                        )}
-                                      </AnimatePresence>
+                      <h3>Summary:</h3>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="summary-text"
+                      >
+                        {summary}
+                      </motion.p>
+                      <h3>Full Answer:</h3>
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="answer-text"
+                      >
+                        {answer}
+                      </motion.p>
+                    </>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="past-questions-container">
               <h3>Past Questions</h3>
@@ -447,8 +447,8 @@ const HomeworkAIApp: React.FC = () => {
                   <h4>{q.subject} - {q.level}</h4>
                   <p><strong>Q:</strong> {q.question}</p>
                   <p><strong>Summary:</strong> {q.summary}</p>
-                  <button 
-                    className="view-full-answer-button" 
+                  <button
+                    className="view-full-answer-button"
                     onClick={() => {
                       setSubject(q.subject);
                       setLevel(q.level);
@@ -464,73 +464,73 @@ const HomeworkAIApp: React.FC = () => {
               ))}
             </div>
 
-                                    </>
-                                  ) : (
-                                    <motion.div
-                                      initial={{ opacity: 0 }}
-                                      animate={{ opacity: 1 }}
-                                      transition={{ delay: 0.3 }}
-                                      className="auth-container"
-                                    >
-                                      <form onSubmit={handleSignIn}>
-                                        <motion.input
-                                          whileHover={{ scale: 1.02 }}
-                                          whileTap={{ scale: 0.98 }}
-                                          type="email"
-                                          value={email}
-                                          onChange={(e) => setEmail(e.target.value)}
-                                          placeholder="Email"
-                                          required
-                                        />
-                                        <motion.input
-                                          whileHover={{ scale: 1.02 }}
-                                          whileTap={{ scale: 0.98 }}
-                                          type="password"
-                                          value={password}
-                                          onChange={(e) => setPassword(e.target.value)}
-                                          placeholder="Password"
-                                          required
-                                        />
-                                        <motion.button
-                                          whileHover={{ scale: 1.05 }}
-                                          whileTap={{ scale: 0.95 }}
-                                          type="submit"
-                                          className="submit-button"
-                                        >
-                                          Sign In
-                                        </motion.button>
-                                      </form>
-                                      <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={handleSignUp}
-                                        className="submit-button"
-                                      >
-                                        Sign Up
-                                      </motion.button>
-                                      <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={handleGoogleSignIn}
-                                        className="submit-button"
-                                      >
-                                        Sign in with Google
-                                      </motion.button>
-                                      {error && (
-                                        <motion.p
-                                          initial={{ opacity: 0 }}
-                                          animate={{ opacity: 1 }}
-                                          className="error-message"
-                                        >
-                                          {error}
-                                        </motion.p>
-                                      )}
-                                    </motion.div>
-                                  )}
-                                </motion.div>
-                              </motion.div>
-                            );
-                          };
+          </>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="auth-container"
+          >
+            <form onSubmit={handleSignIn}>
+              <motion.input
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+              />
+              <motion.input
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="submit-button"
+              >
+                Sign In
+              </motion.button>
+            </form>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleSignUp}
+              className="submit-button"
+            >
+              Sign Up
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleGoogleSignIn}
+              className="submit-button"
+            >
+              Sign in with Google
+            </motion.button>
+            {error && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="error-message"
+              >
+                {error}
+              </motion.p>
+            )}
+          </motion.div>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};
 
-                          export default HomeworkAIApp;
+export default HomeworkAIApp;
 
