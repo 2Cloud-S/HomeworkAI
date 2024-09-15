@@ -1,0 +1,53 @@
+run = "npm start"
+entrypoint = "src/App.tsx"
+
+hidden = [".config", "tsconfig.json", "tsconfig.node.json", "vite.config.js", ".gitignore"]
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+PATH = "/home/runner/$REPL_SLUG/.config/npm/node_global/bin:/home/runner/$REPL_SLUG/node_modules/.bin"
+npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_global"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".config"]
+
+[packager]
+language = "nodejs"
+  [packager.features]
+  packageSearch = true
+  guessImports = true
+  enabledForHosting = false
+
+[languages]
+  [languages.javascript]
+  pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
+    [languages.javascript.languageServer]
+    start = "typescript-language-server --stdio"
+
+[deployment]
+build = ["npm", "run", "build"]
+deploymentTarget = "static"
+publicDir = "dist"
+
+[[ports]]
+localPort = 443
+externalPort = 3002
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
+localPort = 3001
+externalPort = 3001
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
+
+[[ports]]
+localPort = 5173
+externalPort = 80
